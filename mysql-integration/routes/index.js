@@ -20,4 +20,10 @@ router.post("/testdata", schemaValitor, createTestData);
 router.put("/testdata/:id", updateTestData);
 router.delete("/testdata/:id", deleteTestData);
 
+// router.post("/login", (req, res) => {
+//   console.log(req.body);
+//   res.send("login api path working");
+// });
+router.post("/login", loginUser);
+
 module.exports = router;
