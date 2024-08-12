@@ -3,14 +3,14 @@ const connectToDatabase = require("../db-config/index");
 const createTestData = async (req, res) => {
   try {
     const { name, className, medium } = req.body;
-    console.log(req.body);
-    // console.log(name, className, medium);
-    if (!name || !className || !medium) {
-      return res.status(500).send({
-        success: false,
-        message: "Please provide all values",
-      });
-    }
+    // console.log(req.body);
+    // // console.log(name, className, medium);
+    // if (!name || !className || !medium) {
+    //   return res.status(500).send({
+    //     success: false,
+    //     message: "Please provide all values",
+    //   });
+    // }
     const connection = await connectToDatabase();
     const sql = `INSERT INTO TEST (name, className, medium) VALUES ('${name}', '${className}', '${medium}')`;
     const [data] = await connection.query(sql);
@@ -26,7 +26,7 @@ const createTestData = async (req, res) => {
       data,
     });
   } catch (error) {
-    console.error(error);
+    console.log(error);
     res.status(500).send({
       success: false,
       message: "Error while adding data",
