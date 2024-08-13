@@ -1,4 +1,4 @@
-const connectToDatabase = require("../db-config/index");
+const connectToDatabase = require("../db-config/index").default;
 
 const updateTestData = async (req, res) => {
   try {
